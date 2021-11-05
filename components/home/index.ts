@@ -1,0 +1,5 @@
+export { default as Services } from './Services/Services'
+export { default as Testimonials } from './Testimonials/Testimonials'
+export { default as PricingPlans } from './PricingPlans/PricingPlans'
+export { default as Cta } from './Cta/Cta'
+export { default as RecentPosts } from './RecentPosts/RecentPosts'

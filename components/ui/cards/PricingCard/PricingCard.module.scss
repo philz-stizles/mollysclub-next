@@ -1,0 +1,21 @@
+.pricing-card {
+  box-shadow: 0 3px 20px rgb(52 58 64 / 3%);
+  border-radius: 6px;
+  transition: all 0.5s;
+  background-color: #fff;
+  padding: 5rem;
+  margin-top: 1.5rem;
+}
+
+.pricing-card__figure {
+}
+
+.pricing-card__list {
+  margin-bottom: 1.8rem;
+
+  li {
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+    color: #949da8;
+  }
+}
