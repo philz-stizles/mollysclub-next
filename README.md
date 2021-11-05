@@ -1,4 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Table of contents
+
+1. [Getting Started](#getting-started)
+2. [Assumptions](#assumptions)
+3. [End Points of Interest](#end-points-of-interest)
+4. [Corner Cases](#corner-cases)
+5. [How to Run the Application](#how-to-run-the-application)
+6. [How to Run Tests](#how-to-run-tests)
+7. [Overstay Fee Algorithm using Customer Id(Important)](#overstay-fee-algorithm-using-customer-id)
+8. [Overstay Fee Algorithm using Reservation Id(Important)](#overstay-fee-algorithm-using-reservation-id)
+9. [TypeScript Installation(Optional)](#typescript-installation)
+10. [Jest Installation(Optional)](#jest-installation)
 
 ## Getting Started
 
@@ -27,8 +38,41 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
+## Installation
+
+npx create-next-app@latest --typescript ./
+
+## Sass
+
+yarn add sass
+
+## Typescript
+
+## Eslint
+
+Similarly, the --dir and --file flags can be used for next lint to lint specific directories and files:
+
+next lint --dir pages --dir utils --file bar.js
+
+# Prettier
+
+yarn add --dev eslint-config-prettier
+
+Then, add prettier to your existing ESLint config:
+
+{
+"extends": ["next", "prettier"]
+}
+
+## Jest
+
+yarn add -D jest babel-jest @testing-library/react @testing-library/jest-dom identity-obj-proxy react-test-renderer
+
+yarn add -D @types/jest
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# mollysclub-client
