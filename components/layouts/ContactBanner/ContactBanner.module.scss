@@ -1,0 +1,39 @@
+.info-banner {
+  background-color: #4949fd;
+  color: #fff;
+  padding: 1.2rem 0;
+  // font-weight: 400;
+
+  &__info {
+    display: flex;
+    align-items: center;
+
+    li {
+      margin-right: 2rem;
+      display: flex;
+      align-items: center;
+    }
+
+    i {
+      margin-right: 1rem;
+      display: inline-block;
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+
+    i {
+      font-size: 2.4rem;
+      margin-right: 1rem;
+      display: inline-block;
+      // color: #1d2d5e;
+    }
+  }
+}
+
+.info-banner__wrapper {
+  justify-content: space-between;
+}

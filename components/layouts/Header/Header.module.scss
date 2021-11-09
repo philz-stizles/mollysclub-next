@@ -1,0 +1,100 @@
+.header {
+  background-color: #e8f1ff;
+  // background-image: url(/images/doctor_and_nurse.jpg);
+  // background-repeat: no-repeat;
+  // background-position: bottom right;
+  // object-fit: scale-down;
+  // min-height: 100vh;
+  min-height: 62rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.cta {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 3rem;
+
+  &__article {
+    padding-right: 3rem;
+    // flex: 0 0 60%;
+  }
+
+  &__image {
+    // flex: 1;
+  }
+}
+
+.article {
+  &__heading {
+    font-size: 4.2rem;
+    line-height: 1.4;
+  }
+
+  &__span {
+    display: inline-block;
+  }
+
+  &__paragraph {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+}
+
+///////////////////////////////////////
+// SEARCH
+.search {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  &__input {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: #fff;
+    border: none;
+    padding: 0.7rem 2rem;
+    // border-radius: 100px;
+    border-radius: 5px;
+    width: 90%;
+    transition: all 0.2s;
+    margin-right: -3.25rem;
+
+    &:focus {
+      outline: none;
+      width: 100%;
+      // background-color: var(--color-grey-light-3);
+    }
+
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--color-grey-light-4);
+    }
+  }
+
+  &__input:focus + &__button {
+    background-color: var(--color-grey-light-3);
+  }
+
+  &__button {
+    border: none;
+    background-color: var(--color-grey-light-2);
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--color-grey-dark-3);
+  }
+}

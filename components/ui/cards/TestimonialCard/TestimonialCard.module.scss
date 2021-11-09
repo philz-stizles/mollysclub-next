@@ -1,18 +1,18 @@
-.testimonial-card {
-  transition: all 0.5s;
-  border-bottom: 2px solid transparent;
-  padding: 30px;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 5%);
+// .testimonial-card {
+//   transition: all 0.5s;
+//   border-bottom: 2px solid transparent;
+//   padding: 30px;
+//   box-shadow: 0 3px 10px rgb(0 0 0 / 5%);
 
-  .double-quotes:before {
-    content: '\ebce';
-  }
+//   .double-quotes:before {
+//     content: '\ebce';
+//   }
 
-  &:hover {
-    border-bottom: 2px solid #6d62fd;
-    box-shadow: 0 3px 16px rgb(0 0 0 / 10%);
-  }
-}
+//   &:hover {
+//     border-bottom: 2px solid #6d62fd;
+//     box-shadow: 0 3px 16px rgb(0 0 0 / 10%);
+//   }
+// }
 
 // .testi-content:hover .testi-icon {
 //     color: #6d62fd;

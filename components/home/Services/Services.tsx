@@ -5,7 +5,7 @@ import styles from './Services.module.scss'
 const Services = () => {
   return (
     <section className={styles['services']}>
-      <div className="wrapper">
+      <div className="container">
         <div className={styles['pricing-plans__header']}>
           <SectionHeader
             title="Health Services"

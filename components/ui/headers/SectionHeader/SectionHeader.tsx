@@ -9,10 +9,17 @@ interface ISectionHeaderProps {
 const SectionHeader: FC<ISectionHeaderProps> = ({ title, description }) => {
   return (
     <article className="section-header text-center mb-4">
-      <h1 className="section-header__title">{title}</h1>
-      <p className="section-header__desc">{description}</p>
+      <div className="section-header-content">
+        <h1 className="section-header__title">{title}</h1>
+        <p className="section-header__desc">{description}</p>
+      </div>
       <style jsx>{`
         .section-header {
+          display: flex;
+          justify-content: center;
+        }
+
+        .section-header-content {
           max-width: 50%;
         }
 

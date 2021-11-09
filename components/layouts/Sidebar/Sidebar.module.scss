@@ -1,0 +1,47 @@
+.sidebar {
+  width: 260px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -230px;
+  // z-index: 20;
+  background-color: #fff;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  z-index: 30;
+  // width: 260px;
+  // padding-top: 185px;
+  // box-shadow: 0 0 0 1px rgb(0 0 0 / 5%), 0 1px 1px rgb(0 0 0 / 5%);
+}
+
+// X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .sidebar {
+    left: 0;
+    box-shadow: 0 4px 12px 0 rgb(131 146 165 / 15%);
+    // border-right: 1px solid rgba(224, 225, 235, 0.85);
+  }
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .sidebar {
+    width: 260px;
+  }
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+}

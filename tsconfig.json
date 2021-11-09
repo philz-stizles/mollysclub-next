@@ -18,9 +18,14 @@
     "paths": {
       "@/components/*": ["components/*"],
       "@/store/*": ["store/*"]
-    },
-    "typeRoots": ["src/@types", "./node_modules/@types"]
+    }
+    // "typeRoots": ["src/@types", "./node_modules/@types"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/articles/SimpleArticle/SimpleArticle.jsx"
+  ],
   "exclude": ["node_modules"]
 }
