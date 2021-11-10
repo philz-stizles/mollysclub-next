@@ -4,22 +4,30 @@ import { useRouter } from 'next/router'
 
 type SidebarMenuItemProps = {
   label: string
-  icon: FC
+  icon: string
+  // icon: FC
   href: string
   isActive?: boolean
 }
 
 const SidebarMenuItem = ({ label, icon, href }: SidebarMenuItemProps) => {
   const router = useRouter()
-  const isActive = router.asPath === href
-  const Icon = icon
+  const isActive =
+    router.asPath.substring(router.asPath.lastIndexOf('/')) === href
+  // const Icon = icon
 
   return (
     <li data-test="list-item" className="sidebar-menu-item" aria-hidden="true">
       <Link href={href}>
         <a>
-          <Icon />
-          <span data-test="list-item-text"> {label}</span>
+          {/* <Icon /> */}
+          <i className={`icon ${icon}`}></i>
+          <span className="text" data-test="list-item-text">
+            {' '}
+            {label}
+          </span>
+
+          <i className="caret las la-angle-down"></i>
         </a>
       </Link>
       <style jsx>{`
@@ -30,12 +38,14 @@ const SidebarMenuItem = ({ label, icon, href }: SidebarMenuItemProps) => {
         .sidebar-menu-item a {
           position: relative;
           display: block;
-          padding: 14px 30px 14px 53px;
+          cursor: pointer;
+          // padding: 14px 30px 14px 53px;
+          padding: 7px 30px 7px 53px;
           background: ${isActive ? '#304ffe' : '#fff'};
           color: ${isActive ? '#fff' : '#434a54'};
         }
 
-        .sidebar-menu-item svg {
+        .sidebar-menu-item .icon {
           display: inline-block;
           position: absolute;
           top: 0;
@@ -44,7 +54,6 @@ const SidebarMenuItem = ({ label, icon, href }: SidebarMenuItemProps) => {
           width: 50px;
           top: 50%;
           transform: translateY(-50%);
-          font-size: 18px;
           line-height: 49px;
           text-align: center;
           vertical-align: middle;
@@ -52,9 +61,18 @@ const SidebarMenuItem = ({ label, icon, href }: SidebarMenuItemProps) => {
           color: ${isActive ? '#fff' : 'inherit'};
         }
 
-        .sidebar-menu-item span {
+        .sidebar-menu-item .text {
           vertical-align: middle;
           font-size: 14px;
+        }
+
+        .sidebar-menu-item .caret {
+          position: absolute;
+          top: 12px;
+          right: 20px;
+          font-size: 14px;
+          line-height: 14px;
+          transition: all 0.4s ease;
         }
       `}</style>
     </li>

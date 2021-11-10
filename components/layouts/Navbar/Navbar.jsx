@@ -49,9 +49,9 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
-        <ul className={styles.navbar_auth}>
+        {/*<ul className={styles.navbar_auth}>
           <Button onClick={() => router.push('/login')}>Join now</Button>
-        </ul>
+  </ul>*/}
       </div>
     </div>
   )

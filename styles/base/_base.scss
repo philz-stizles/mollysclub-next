@@ -38,6 +38,15 @@ button {
   transition: all 0.4s ease;
 }
 
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+i {
+  font-size: 32px;
+}
+
 #__next {
   min-height: 100vh;
   display: flex;

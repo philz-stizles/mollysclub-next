@@ -1,4 +1,4 @@
-import { BsFillAlarmFill } from 'react-icons/bs'
+// import {  } from 'react-icons/bs'
 
 const sidebar = [
   {
@@ -7,32 +7,32 @@ const sidebar = [
       {
         href: '/dashboard',
         label: 'Dashboard',
-        icon: BsFillAlarmFill,
+        icon: 'las la-tachometer-alt',
       },
       {
         href: '/dashboard/doctors',
         label: 'Doctors',
-        icon: BsFillAlarmFill,
+        icon: 'las la-tachometer-alt',
       },
       {
         href: '/dashboard/patients',
         label: 'Patients',
-        icon: BsFillAlarmFill,
+        icon: 'las la-tachometer-alt',
       },
       {
         href: '/dashboard/pharmacies',
         label: 'Pharmacies',
-        icon: BsFillAlarmFill,
+        icon: 'las la-tachometer-alt',
       },
       // {
       //   href: '/dashboard/test-centers',
       //   label: 'Test centers',
-      //   icon: BsFillAlarmFill,
+      //   icon: 'las la-tachometer-alt',
       // },
       {
         href: '/dashboard/gymns',
         label: 'Gymns',
-        icon: BsFillAlarmFill,
+        icon: 'las la-tachometer-alt',
       },
     ],
   },
@@ -42,17 +42,17 @@ const sidebar = [
       {
         href: '/dashboard/transactions',
         label: 'Transactions',
-        icon: BsFillAlarmFill,
+        icon: 'las la-tachometer-alt',
       },
       {
         href: '/dashboard/notifications',
         label: 'Notifications',
-        icon: BsFillAlarmFill,
+        icon: 'las la-tachometer-alt',
       },
       {
         href: '/dashboard/tasks',
-        label: 'Tasks',
-        icon: BsFillAlarmFill,
+        label: 'Meetings',
+        icon: 'las la-tachometer-alt',
       },
     ],
   },
@@ -62,17 +62,17 @@ const sidebar = [
       {
         href: '/dashboard/roles',
         label: 'Roles',
-        icon: BsFillAlarmFill,
+        icon: 'las la-tachometer-alt',
       },
       {
         href: '/dashboard/audit',
         label: 'Audit',
-        icon: BsFillAlarmFill,
+        icon: 'las la-tachometer-alt',
       },
       {
         href: '/dashboard/profile',
         label: 'Profile',
-        icon: BsFillAlarmFill,
+        icon: 'las la-tachometer-alt',
       },
     ],
   },

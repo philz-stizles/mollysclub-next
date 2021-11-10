@@ -4,16 +4,21 @@ const initialState = {
   isShowing: false,
   type: null,
   icon: null,
-  message: null
+  message: null,
 }
 
-const alertReducer = (state = initialState, action) => {
+type Action = {
+  type: string
+  payload: any
+}
+
+const alertReducer = (state = initialState, action: Action) => {
   const { type, payload } = action
   switch (type) {
     case SHOW_ALERT: {
       return {
         isShowing: true,
-        message: payload
+        message: payload,
       }
     }
     case HIDE_ALERT: {

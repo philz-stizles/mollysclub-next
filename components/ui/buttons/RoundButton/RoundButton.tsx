@@ -8,21 +8,10 @@ type ButtonProps = {
   onClick?: () => void
 }
 
-const RoundButton: FC<ButtonProps> = ({ float, icon, disabled }) => {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    })
-  }
-
+const RoundButton: FC<ButtonProps> = ({ float, icon, disabled, onClick }) => {
   // const Icon = icon
   return (
-    <button
-      disabled={disabled}
-      className="round-button"
-      onClick={() => scrollToTop()}
-    >
+    <button disabled={disabled} className="round-button" onClick={onClick}>
       <i className={icon}></i>
       <style jsx>{`
         .round-button {

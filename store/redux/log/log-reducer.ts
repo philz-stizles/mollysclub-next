@@ -3,10 +3,15 @@ import { LOGS_START } from '../action-types'
 const initialState = {
   logs: [],
   current: null,
-  loading: false
+  loading: false,
 }
 
-const logReducer = (state = initialState, action) => {
+type Action = {
+  type: string
+  payload: any
+}
+
+const logReducer = (state = initialState, action: Action) => {
   const { type, payload } = action
   switch (type) {
     case LOGS_START: {

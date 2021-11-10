@@ -30,30 +30,29 @@ const BlogCard = () => {
             Orem Ipsum is simpl text the printing and types industry.
           </p>
           <Link href="blog-details.html">
-            <a className="blog-card__action">
+            <a className="blog-card__action m-hr">
               <span>Read More</span> <i className="las la-arrow-right"></i>
             </a>
           </Link>
         </div>
       </div>
-      <style>{`
+      <style jsx>{`
         .blog-card {
           box-shadow: 0px 0px 10px 0px rgb(89 75 128 / 9%);
           margin-bottom: 30px;
         }
 
-        .blog-card__img img{
+        .blog-card__img img {
           transition: all 0.9s ease;
         }
 
-        .blog-card:hover .blog-card__img img{
+        .blog-card:hover .blog-card__img img {
           transform: scale(1.1) rotate(1deg);
         }
 
         .blog-card__body {
           padding: 40px 30px 35px;
-          border: 1px
-          solid #f3f3f3;
+          border: 1px solid #f3f3f3;
           border-top: none;
           background: #fff;
         }
@@ -81,6 +80,11 @@ const BlogCard = () => {
           font-size: 14px;
           font-weight: 500;
           color: #062a4d;
+        }
+
+        .blog-card__action i {
+          font-size: 24px;
+          margin-left: 1rem;
         }
       `}</style>
     </div>

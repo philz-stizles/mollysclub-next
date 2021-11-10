@@ -33,6 +33,14 @@ export const StatCard1: FC<IStatCard> = ({ figure, title, icon }) => {
   )
 }
 
-export const StatCard2: FC<IStatCard> = () => {
+export const StatsCard3: FC<IStatCard> = () => {
+  return <div></div>
+}
+
+export const StatsCard4: FC<IStatCard> = () => {
+  return <div></div>
+}
+
+export const StatsCard5: FC<IStatCard> = () => {
   return <div></div>
 }

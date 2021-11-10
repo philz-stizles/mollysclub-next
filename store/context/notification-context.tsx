@@ -1,27 +1,32 @@
 /* eslint-disable react/prop-types */
-import { createContext, useEffect, useState } from 'react'
+import { createContext, ReactNode, useEffect, useState } from 'react'
 
-type INotification = {
+type Notification = {
   title: string
   message: string
   status: string
 }
 
-type INotificationContext = {
-  notification: INotification
-  showNotification: (notificationData) => any
+type NotificationContextType = {
+  notification: null | Notification
+  showNotification: (notification: Notification) => any
   hideNotification: () => any
 }
 
-const NotificationContext = createContext<INotificationContext>({
+const NotificationContext = createContext<NotificationContextType>({
   notification: null, // {title, message, status }
   // eslint-disable-next-line no-unused-vars
-  showNotification: (notificationData: any) => {},
+  showNotification: () => {},
   hideNotification: () => {},
 })
 
-export const NotificationProvider = ({ children }) => {
-  const [activeNotification, setActiveNotification] = useState(null)
+type Props = {
+  children: ReactNode
+}
+
+export const NotificationProvider = ({ children }: Props) => {
+  const [activeNotification, setActiveNotification] =
+    useState<null | Notification>(null)
 
   useEffect(() => {
     if (
@@ -41,8 +46,8 @@ export const NotificationProvider = ({ children }) => {
     }
   }, [activeNotification])
 
-  const showNotification = notificationData => {
-    setActiveNotification(notificationData)
+  const showNotification = (notification: Notification) => {
+    setActiveNotification(notification)
   }
 
   const hideNotification = () => {

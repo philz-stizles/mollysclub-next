@@ -10,7 +10,8 @@ type SidebarProps = {
 export type MenuItem = {
   href: string
   label: string
-  icon: FC
+  icon: string
+  // icon: FC
 }
 
 export type MenuBlueprint = {

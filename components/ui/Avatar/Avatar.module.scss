@@ -14,6 +14,22 @@
   }
 }
 
+.dashboard-avatar {
+  border-radius: 50%;
+  box-shadow: 0 5px 12px rgb(109 98 253 / 20%);
+  transition: all 0.5s;
+  margin: 0 auto;
+  display: block;
+  box-shadow: 0 5px 12px rgb(109 98 253 / 20%);
+  transition: all 0.5s;
+  max-width: 100%;
+  height: auto;
+
+  img {
+    transition: all 0.5s;
+  }
+}
+
 // max-width: 100%;
 //     height: auto;
 // max-width: 100%;

@@ -3,11 +3,12 @@ import Image from 'next/image'
 import styles from './Avatar.module.scss'
 
 type AvatarProps = {
+  size?: string
   src: string
   alt: string
 }
 
-const Avatar: FC<AvatarProps> = ({ src, alt }) => {
+const Avatar: FC<AvatarProps> = ({ src, alt, size }) => {
   return (
     <Image
       className={styles.avatar}

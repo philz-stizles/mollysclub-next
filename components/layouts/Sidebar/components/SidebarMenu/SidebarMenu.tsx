@@ -17,6 +17,7 @@ const SidebarMenu = ({ title, menuItems }: SidebarMenuProps) => {
 
       <style jsx>{`
         .sidebar-menu {
+          margin: 10px 0 30px 0;
         }
 
         .sidebar-menu__items {

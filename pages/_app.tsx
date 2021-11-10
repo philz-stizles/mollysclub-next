@@ -1,6 +1,10 @@
-import { ReactElement, ReactNode, useEffect } from 'react'
+import React, { ReactElement, ReactNode, useEffect } from 'react'
 import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
+// Providers
+import { ModalProvider } from '@/store/context/modal-context'
+import { SidebarProvider } from '@/store/context/sidebar-context'
+import { NotificationProvider } from '@/store/context/notification-context'
 // Global styles.
 import 'bootstrap/dist/css/bootstrap.css'
 import '../public/icons/linea/icon-font.css'
@@ -22,5 +26,13 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout ?? (page => page)
 
-  return getLayout(<Component {...pageProps} />)
+  return (
+    <ModalProvider>
+      <NotificationProvider>
+        <SidebarProvider>
+          {getLayout(<Component {...pageProps} />)}
+        </SidebarProvider>
+      </NotificationProvider>
+    </ModalProvider>
+  )
 }

@@ -4,25 +4,23 @@ import { HiMenuAlt2 } from 'react-icons/hi'
 const Hamburger = () => {
   return (
     <div className="hamburger">
-      <HiMenuAlt2 />
+      <i className="las la-bars"></i>
       <style jsx>{`
         .hamburger {
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 75px;
-          width: 70px;
-          border: none;
-          outline: none;
-          font-size: 20px;
-          line-height: 75px;
-          color: #fff;
-          background: #306ffe;
+          color: #373857;
+          width: 42px;
+          height: 42px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.1s;
+          cursor: pointer;
         }
 
-        .hamburger svg {
+        .hamburger i {
           display: inline-block;
+          font-weight: 700;
+          font-size: 32px;
         }
       `}</style>
     </div>

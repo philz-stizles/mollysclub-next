@@ -1,0 +1,97 @@
+.app-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  outline: 0;
+  opacity: 0;
+  transition: opacity 0.15s linear;
+
+  &__dialog {
+    max-width: 100%;
+    position: relative;
+    width: auto;
+    margin: 0.5rem;
+    pointer-events: none;
+    transition: transform 0.3s ease-out;
+    transform: translate(0, -25%);
+
+    &--show {
+      transform: translate(0, 0);
+    }
+  }
+
+  &__content {
+    padding: 0 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    outline: 0;
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+
+    .title {
+    }
+
+    .close {
+    }
+  }
+
+  &__body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: 1rem;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-top: 1px solid #e9ecef;
+  }
+
+  &--show {
+    opacity: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .app-modal__dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+}
+
+@media (min-width: 576px) {
+  .app-modal__dialog {
+    max-width: 500px;
+    margin: 1.75rem auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .app-modal__dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+}
