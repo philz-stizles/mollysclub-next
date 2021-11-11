@@ -13,12 +13,13 @@ type SidebarMenuItemProps = {
 const SidebarMenuItem = ({ label, icon, href }: SidebarMenuItemProps) => {
   const router = useRouter()
   const isActive =
-    router.asPath.substring(router.asPath.lastIndexOf('/')) === href
+    router.asPath.substring(router.asPath.lastIndexOf('/')) ===
+    href.substring(href.lastIndexOf('/'))
   // const Icon = icon
 
   return (
     <li data-test="list-item" className="sidebar-menu-item" aria-hidden="true">
-      <Link href={href}>
+      <Link href={`/admin/${href}`}>
         <a>
           {/* <Icon /> */}
           <i className={`icon ${icon}`}></i>

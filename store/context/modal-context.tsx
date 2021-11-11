@@ -8,7 +8,7 @@ type ModalContextType = {
 
 // Initialize context with default values.
 const ModalContext = createContext<ModalContextType>({
-  isOpen: true,
+  isOpen: false,
   openModal: () => {},
   closeModal: () => {},
 })
@@ -18,7 +18,7 @@ type Props = {
 }
 
 export function ModalProvider({ children }: Props) {
-  const [isOpen, setIsOpen] = useState<boolean>(true)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const openModal = () => {
     console.log('fire modal context')

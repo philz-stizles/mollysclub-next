@@ -1,4 +1,5 @@
 import { AppModal, Backdrop } from '@/components/ui'
+import Script from 'next/script'
 import React, { ReactElement, useState } from 'react'
 import { DashboardHeader, Sidebar } from '..'
 import { useModal } from '@/store/context/modal-context'
@@ -20,9 +21,13 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       <div className="dashboard__content">
         <DashboardHeader />
         {children}
-        <AppModal isOpen={isOpen} title="Modal" />
-        <Backdrop isShowing={isOpen} />
+        {/* <AppModal isOpen={isOpen} title="Modal" />
+        <Backdrop isShowing={isOpen} /> */}
       </div>
+      <Script
+        src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"
+        strategy="beforeInteractive"
+      />
       <style jsx>{`
         .dashboard__content {
           background: #f5f7fa;

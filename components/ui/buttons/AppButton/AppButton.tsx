@@ -7,23 +7,28 @@ type AppButtonProps = {
   label: string
   disabled?: boolean
   children?: ReactElement
+  className?: string
+  outlined?: boolean
   onClick?: () => void
 }
 const AppButton = ({
   type,
   label,
   children,
+  outlined,
   onClick,
   disabled,
   size,
+  className,
 }: AppButtonProps) => {
   type = type ? type : 'button'
   size = size ? size : 'medium'
+  outlined = outlined ? true : false
   return (
     <button
       type={type === 'submit' ? 'submit' : 'button'}
       onClick={onClick}
-      className="app-button"
+      className={['app-button', className ? className : ''].join(' ')}
       disabled={disabled}
     >
       {label}
@@ -48,12 +53,13 @@ const AppButton = ({
           overflow: hidden;
           user-select: none;
           -webkit-tap-highlight-color: transparent;
-          background: #304ffe;
+          border: 1px solid transparent;
+          border-color: #304ffe;
+          background: ${outlined ? '#fff' : '#304ffe'};
           outline: none;
-          border: none;
           font-weight: 500;
           border-radius: 0.2rem;
-          color: #fff;
+          color: ${outlined ? '#304ffe' : '#fff'};
           text-align: center;
           white-space: nowrap;
           vertical-align: middle;

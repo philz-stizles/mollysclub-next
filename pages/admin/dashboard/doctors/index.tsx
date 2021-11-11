@@ -1,13 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { ReactElement, useContext, useEffect, useState } from 'react'
 // import axios from 'axios'
 // import NotificationContext from '@/store/context/notification-context'
 import DashboardLayout from '@/components/layouts/DashboardLayout/DashboardLayout'
+import AppTable from '@/components/ui/tables/AppTable/AppTable'
+import CardWrapper from '@/components/ui/cards/CardWrapper/CardWrapper'
 // import Loader from '@/components/ui/loaders/Loader'
 // import Table from '@/components/ui/Table/Table'
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL
 
-const Doctors = () => {
+const DoctorsDashboard = () => {
   // const [doctors, setDoctors] = useState([])
   // const [isLoading, setIsLoading] = useState(true)
   // const [isModalOpen, setIsModalOpen] = useState(false)
@@ -61,11 +63,22 @@ const Doctors = () => {
   // }
 
   return (
-    <DashboardLayout>
-      <div>Doctor</div>
-      {/* <div>{doctorsOrLoader}</div> */}
-    </DashboardLayout>
+    <div className="doctors-dashboard">
+      <h4>Doctor</h4>
+      <CardWrapper title={'List of Doctors'}>
+        <AppTable />
+      </CardWrapper>
+      <style>{`
+        .doctors-dashboard {
+           padding: 2rem;
+        }
+      `}</style>
+    </div>
   )
 }
 
-export default Doctors
+DoctorsDashboard.getLayout = function getLayout(page: ReactElement) {
+  return <DashboardLayout>{page}</DashboardLayout>
+}
+
+export default DoctorsDashboard
