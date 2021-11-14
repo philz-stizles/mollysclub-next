@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 
-const SidebarHeader = ({ brand }) => {
+const SidebarHeader = ({ brand }: { brand: string }) => {
   return (
     <div className="SidebarHeader">
       <div className="SidebarHeader_body">

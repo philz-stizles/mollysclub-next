@@ -16,8 +16,8 @@ export interface IJWTVerify {
 }
 
 export const generateToken = (payload: string | any | Buffer): string =>
-  jwt.sign(payload, process.env.JWT_AUTH_SECRET as string, {
-    expiresIn: process.env.JWT_AUTH_EXPIRES_IN,
+  jwt.sign(payload, process.env.NEXT_PUBLIC_JWT_AUTH_SECRET as string, {
+    expiresIn: process.env.NEXT_PUBLIC_JWT_AUTH_EXPIRES_IN,
   })
 
 export const verifyToken = (
@@ -26,12 +26,16 @@ export const verifyToken = (
   // eslint-disable-next-line no-return-await
   // await promisify(jwt.verify)(token, process.env.JWT_AUTH_SECRET);
   return new Promise<any>((resolve, reject) => {
-    jwt.verify(token, `${process.env.JWT_AUTH_SECRET}`, (err, decoded) => {
-      if (err) {
-        reject(err)
-      } else {
-        resolve(decoded)
+    jwt.verify(
+      token,
+      `${process.env.NEXT_PUBLIC_JWT_AUTH_SECRET}`,
+      (err, decoded) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(decoded)
+        }
       }
-    })
+    )
   })
 }
