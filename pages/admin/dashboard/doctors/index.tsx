@@ -68,7 +68,7 @@ const DoctorsDashboard = () => {
         <h4 className="title">Doctors</h4>
       </div>
       <CardWrapper title={'List of Doctors'}>
-        <AppTable />
+        <AppTable columns={[]} records={[]} />
       </CardWrapper>
       <style>{`
         .doctors-dashboard {

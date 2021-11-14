@@ -1,5 +1,5 @@
+import { DashboardLayout } from '@/components/layouts'
 import React from 'react'
-import DashboardLayout from '../../../../components/layouts/DashboardLayout/DashboardLayout'
 
 const PharmacyDashboard = () => {
   return (

@@ -1,5 +1,5 @@
+import { DashboardLayout } from '@/components/layouts'
 import React, { ReactElement } from 'react'
-import DashboardLayout from '../../../../components/layouts/DashboardLayout/DashboardLayout'
 
 const PatientDashboard = () => {
   return <div>Patient</div>
