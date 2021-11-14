@@ -17,7 +17,7 @@ export const getCookieFromBrowser = (key: string) => {
   return cookie.get(key)
 }
 
-export const getCookieFromServer = (key, req) => {
+export const getCookieFromServer = (key: string, req: any) => {
   if (!req.headers.cookie) {
     return undefined
   }
@@ -26,7 +26,7 @@ export const getCookieFromServer = (key, req) => {
 
   const tokenKeyValue = req.headers.cookie
     .split(';')
-    .find(c => c.trim().startsWith(`${key}=`))
+    .find((c: string) => c.trim().startsWith(`${key}=`))
   if (!tokenKeyValue) {
     return undefined
   }
@@ -40,19 +40,19 @@ export const getCookie = (key: string, req?: any) => {
     : getCookieFromServer(key, req)
 }
 
-export const addToLocalStorage = (key, value) => {
+export const addToLocalStorage = (key: string, value: string) => {
   if (process.browser) {
     localStorage.setItem(key, value)
   }
 }
 
-export const removeFromLocalStorage = key => {
+export const removeFromLocalStorage = (key: string) => {
   if (process.browser) {
     localStorage.removeItem(key)
   }
 }
 
-export const authenticate = (data, cb) => {
+export const authenticate = (data: any, cb: any) => {
   if (process.browser) {
     const { loggedInUser, token } = data
     addToLocalStorage('loggedInUser', JSON.stringify(loggedInUser))
@@ -84,10 +84,11 @@ export const logOut = () => {
   // Router.push('/login')
 }
 
-export const updateUserProfile = (user, cb) => {
+export const updateUserProfile = (user: any, cb: any) => {
   if (process.browser) {
-    if (localStorage.getItem('loggedInUser')) {
-      let auth = JSON.parse(localStorage.getItem('loggedInUser'))
+    const loggedInUser = localStorage.getItem('loggedInUser')
+    if (loggedInUser) {
+      let auth = JSON.parse(loggedInUser)
       auth = user
       localStorage.setItem('loggedInUser', JSON.stringify(auth))
       cb()

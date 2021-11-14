@@ -1,13 +1,13 @@
-import FormData from 'form-data';
-import Mailgun from 'mailgun.js';
+import FormData from 'form-data'
+import Mailgun from 'mailgun.js'
 
-const mailgun = new Mailgun(FormData);
+const mailgun = new Mailgun(FormData)
 
 const mg = mailgun.client({
   username: 'api',
-  key: process.env.MAILGUN_API_KEY || 'hjrqacQCTNNR54WAWXMO',
+  key: process.env.NEXT_PUBLIC_MAILGUN_API_KEY || 'hjrqacQCTNNR54WAWXMO',
   // public_key: process.env.MAILGUN_PUBLIC_KEY || 'pubkey-yourkeyhere',
-});
+})
 
 exports.sendPasswordResetMail = async (
   passwordResetUrl: string,
@@ -21,13 +21,16 @@ exports.sendPasswordResetMail = async (
       text: `Forgot your password, submit a request with your new password and password confirm
       to: ${passwordResetUrl}.\nIf you didn't forget your password, please ignore this email
       `,
-    };
+    }
 
-    const response = await mg.messages.create(process.env.MAILGUN_DOMAIN, data);
-    console.log('MAILGUN', response);
-    return true;
+    const response = await mg.messages.create(
+      process.env.NEXT_PUBLIC_MAILGUN_DOMAIN!,
+      data
+    )
+    console.log('MAILGUN', response)
+    return true
   } catch (error: any) {
-    console.error('MAILGUN', error.message);
-    return false;
+    console.error('MAILGUN', error.message)
+    return false
   }
-};
+}
