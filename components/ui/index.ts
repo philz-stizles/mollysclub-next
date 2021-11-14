@@ -18,6 +18,8 @@ export { default as Backdrop } from './Backdrop/Backdrop'
 // modals
 // export { default as AppTable } from './tables/AppTable/AppTable'
 // forms
-export { default as LoginForm } from './forms/LoginForm'
+export { default as LoginForm } from '../auth/LoginForm'
 // inputs
 export { default as TextInput } from './inputs/TextInput'
+// modals
+export { default as AppTable } from './tables/AppTable/AppTable'

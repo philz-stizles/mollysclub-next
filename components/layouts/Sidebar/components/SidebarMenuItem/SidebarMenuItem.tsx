@@ -19,7 +19,7 @@ const SidebarMenuItem = ({ label, icon, href }: SidebarMenuItemProps) => {
 
   return (
     <li data-test="list-item" className="sidebar-menu-item" aria-hidden="true">
-      <Link href={`/admin/${href}`}>
+      <Link href={`/admin${href}`}>
         <a>
           {/* <Icon /> */}
           <i className={`icon ${icon}`}></i>

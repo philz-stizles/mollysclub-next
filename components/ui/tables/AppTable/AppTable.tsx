@@ -1,10 +1,11 @@
+import doctors from 'data/doctors'
 import React from 'react'
 
 type AppTableProps = {
   columns: object[]
-  rows: object[]
+  records: object[]
 }
-const AppTable = ({ columns, rows }: AppTableProps) => {
+const AppTable = ({ columns, records }: AppTableProps) => {
   return (
     <div
       id="example_wrapper"
@@ -124,131 +125,16 @@ const AppTable = ({ columns, rows }: AppTableProps) => {
               </tr>
             </thead>
             <tbody>
-              {}
-              <tr role="row" className="odd">
-                <td className="sorting_1">Airi Satou</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>33</td>
-                <td>2008/11/28</td>
-                <td>$162,700</td>
-              </tr>
-              <tr role="row" className="even">
-                <td className="sorting_1">Angelica Ramos</td>
-                <td>Chief Executive Officer (CEO)</td>
-                <td>London</td>
-                <td>47</td>
-                <td>2009/10/09</td>
-                <td>$1,200,000</td>
-              </tr>
+              {doctors.map(record => {
+                return (
+                  <TableRow key={record.id} record={record} className={''} />
+                )
+              })}
             </tbody>
           </table>
         </div>
       </div>
-      <div className="row">
-        <div className="col-sm-5">
-          <div
-            className="dataTables_info"
-            id="example_info"
-            role="status"
-            aria-live="polite"
-          >
-            Showing 1 to 10 of 57 entries
-          </div>
-        </div>
-        <div className="col-sm-7">
-          <div
-            className="dataTables_paginate paging_simple_numbers"
-            id="example_paginate"
-          >
-            <ul className="pagination">
-              <li
-                className="paginate_button previous disabled"
-                id="example_previous"
-              >
-                <a
-                  href="#"
-                  aria-controls="example"
-                  data-dt-idx="0"
-                  tabIndex={0}
-                >
-                  Previous
-                </a>
-              </li>
-              <li className="paginate_button active">
-                <a
-                  href="#"
-                  aria-controls="example"
-                  data-dt-idx={1}
-                  tabIndex={0}
-                >
-                  1
-                </a>
-              </li>
-              <li className="paginate_button ">
-                <a
-                  href="#"
-                  aria-controls="example"
-                  data-dt-idx="2"
-                  tabIndex={0}
-                >
-                  2
-                </a>
-              </li>
-              <li className="paginate_button ">
-                <a
-                  href="#"
-                  aria-controls="example"
-                  data-dt-idx="3"
-                  tabIndex={0}
-                >
-                  3
-                </a>
-              </li>
-              <li className="paginate_button ">
-                <a
-                  href="#"
-                  aria-controls="example"
-                  data-dt-idx="4"
-                  tabIndex={0}
-                >
-                  4
-                </a>
-              </li>
-              <li className="paginate_button ">
-                <a
-                  href="#"
-                  aria-controls="example"
-                  data-dt-idx="5"
-                  tabIndex={0}
-                >
-                  5
-                </a>
-              </li>
-              <li className="paginate_button ">
-                <a
-                  href="#"
-                  aria-controls="example"
-                  data-dt-idx="6"
-                  tabIndex={0}
-                >
-                  6
-                </a>
-              </li>
-              <li className="paginate_button next" id="example_next">
-                <a
-                  href="#"
-                  aria-controls="example"
-                  data-dt-idx="7"
-                  tabIndex={0}
-                >
-                  Next
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <Pagination page={1} size={10} count={doctors.length} />
     </div>
   )
 }
@@ -275,6 +161,69 @@ const TableRow = ({
       <td>2008/11/28</td>
       <td>$162,700</td>
     </tr>
+  )
+}
+
+const Pagination = ({
+  page,
+  size,
+  count,
+}: {
+  page: number
+  size: number
+  count: number
+}) => {
+  const noOfPages = Math.ceil(count / size)
+  return (
+    <div className="row">
+      <div className="col-sm-5">
+        <div
+          className="dataTables_info"
+          id="example_info"
+          role="status"
+          aria-live="polite"
+        >
+          {`Showing 1 to 10 of ${count} entries`}
+        </div>
+      </div>
+      <div className="col-sm-7">
+        <div
+          className="dataTables_paginate paging_simple_numbers"
+          id="example_paginate"
+        >
+          <ul className="pagination">
+            <li
+              className="paginate_button previous disabled"
+              id="example_previous"
+            >
+              <a href="#" aria-controls="example" data-dt-idx="0" tabIndex={0}>
+                Previous
+              </a>
+            </li>
+            {Array.from(Array(noOfPages), (e, i) => {
+              i = i + 1
+              return (
+                <li key={i} className="paginate_button active">
+                  <a
+                    href="#"
+                    aria-controls="example"
+                    data-dt-idx={`${i}`}
+                    tabIndex={0}
+                  >
+                    {i}
+                  </a>
+                </li>
+              )
+            })}
+            <li className="paginate_button next" id="example_next">
+              <a href="#" aria-controls="example" data-dt-idx="7" tabIndex={0}>
+                Next
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   )
 }
 

@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app'
 import { ModalProvider } from '@/store/context/modal-context'
 import { SidebarProvider } from '@/store/context/sidebar-context'
 import { NotificationProvider } from '@/store/context/notification-context'
+import { AlertProvider } from '@/store/context/alert-context'
 // Global styles.
 import 'bootstrap/dist/css/bootstrap.css'
 import '../public/icons/linea/icon-font.css'
@@ -28,11 +29,13 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <ModalProvider>
-      <NotificationProvider>
-        <SidebarProvider>
-          {getLayout(<Component {...pageProps} />)}
-        </SidebarProvider>
-      </NotificationProvider>
+      <AlertProvider>
+        <NotificationProvider>
+          <SidebarProvider>
+            {getLayout(<Component {...pageProps} />)}
+          </SidebarProvider>
+        </NotificationProvider>
+      </AlertProvider>
     </ModalProvider>
   )
 }

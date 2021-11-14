@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import styles from './AppButton.module.scss'
 
 type AppButtonProps = {
   type?: string

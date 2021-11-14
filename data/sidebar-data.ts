@@ -12,17 +12,17 @@ const sidebar = [
       {
         href: '/dashboard/doctors',
         label: 'Doctors',
-        icon: 'las la-tachometer-alt',
+        icon: 'las la-stethoscope',
       },
       {
         href: '/dashboard/patients',
         label: 'Patients',
-        icon: 'las la-tachometer-alt',
+        icon: 'las la-user-injured',
       },
       {
         href: '/dashboard/pharmacies',
         label: 'Pharmacies',
-        icon: 'las la-tachometer-alt',
+        icon: 'las la-prescription-bottle-alt',
       },
       // {
       //   href: '/dashboard/test-centers',
@@ -32,7 +32,7 @@ const sidebar = [
       {
         href: '/dashboard/gymns',
         label: 'Gymns',
-        icon: 'las la-tachometer-alt',
+        icon: 'las la-dumbbell',
       },
     ],
   },
@@ -42,17 +42,17 @@ const sidebar = [
       {
         href: '/dashboard/transactions',
         label: 'Transactions',
-        icon: 'las la-tachometer-alt',
+        icon: 'las la-credit-card',
       },
       {
         href: '/dashboard/notifications',
         label: 'Notifications',
-        icon: 'las la-tachometer-alt',
+        icon: 'las la-comment',
       },
       {
-        href: '/dashboard/tasks',
+        href: '/dashboard/meetings',
         label: 'Meetings',
-        icon: 'las la-tachometer-alt',
+        icon: 'las la-calendar-plus',
       },
     ],
   },
@@ -62,17 +62,17 @@ const sidebar = [
       {
         href: '/dashboard/roles',
         label: 'Roles',
-        icon: 'las la-tachometer-alt',
+        icon: 'las la-user-tag',
       },
       {
         href: '/dashboard/audit',
         label: 'Audit',
-        icon: 'las la-tachometer-alt',
+        icon: 'las la-shield-alt',
       },
       {
         href: '/dashboard/profile',
         label: 'Profile',
-        icon: 'las la-tachometer-alt',
+        icon: 'las la-user-circle',
       },
     ],
   },

@@ -1,8 +1,9 @@
 import { MongoClient, Db } from 'mongodb'
 
-const MONGODB_URI = process.env.MONGODB_URI
-const MONGODB_DB = process.env.DB_NAME
-
+const MONGODB_URI = process.env.NEXT_PUBLIC_MONGODB_URI
+const MONGODB_DB = process.env.NEXT_PUBLIC_MONGODB_DB
+console.log(MONGODB_URI)
+console.log(MONGODB_DB)
 // check the MongoDB URI
 if (!MONGODB_URI) {
   throw new Error('Define the MONGODB_URI environmental variable')

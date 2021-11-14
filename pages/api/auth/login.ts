@@ -2,13 +2,8 @@
 import { generateToken } from 'lib/services/security/jwt'
 import { verifyPasswordAsync } from 'lib/services/security/password'
 import type { NextApiRequest, NextApiResponse } from 'next'
-const { connectToDatabase } = require('../../../lib/mongodb')
-
-type Data = {
-  message: string
-  data?: object
-  status: boolean
-}
+import { connectToDatabase } from '@/lib/db/mongodb'
+import { Data } from '@/lib/types'
 
 export default function handler(
   req: NextApiRequest,
@@ -40,7 +35,7 @@ async function login(req: NextApiRequest, res: NextApiResponse<Data>) {
     let { db } = await connectToDatabase()
 
     // Check user
-    const existingUser = await db.collection('users').find({ email })
+    const existingUser = await db.collection('users').findOne({ email })
     if (!existingUser) {
       return res
         .status(422)
@@ -61,9 +56,16 @@ async function login(req: NextApiRequest, res: NextApiResponse<Data>) {
       email: existingUser.email,
     })
 
-    return res
-      .status(200)
-      .json({ status: true, data: { token }, message: 'Login successful' })
+    return res.status(200).json({
+      status: true,
+      data: {
+        email: existingUser.email,
+        name: existingUser.fullname,
+        role: existingUser.role,
+        token,
+      },
+      message: 'You are now logged in',
+    })
   } catch (error: any | unknown) {
     // return the error
     return res.json({

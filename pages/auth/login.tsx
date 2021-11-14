@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import React, { useState } from 'react'
 import Cookies from 'universal-cookie'
 import axios from 'axios'
-import LoginForm from '@/components/ui/forms/LoginForm'
+import LoginForm from '@/components/auth/LoginForm'
 
 const cookies = new Cookies()
 

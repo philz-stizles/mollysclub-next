@@ -1,8 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { hashPasswordAsync } from 'lib/services/security/password'
 import type { NextApiRequest, NextApiResponse } from 'next'
-const { connectToDatabase } = require('../../../lib/mongodb')
-const { ObjectId } = require('mongodb')
+import { connectToDatabase } from '../../../lib/db/mongodb'
 
 type Data = {
   message: string
@@ -23,11 +22,12 @@ export default async function handler(
 
 async function register(req: NextApiRequest, res: NextApiResponse<Data>) {
   try {
-    const { firstname, lastname, email, password } = req.body
+    const { fullname, firstname, lastname, email, password } = req.body
 
     if (
-      !firstname ||
-      !lastname ||
+      // !firstname ||
+      // !lastname ||
+      !fullname ||
       !email ||
       !email.includes('@') ||
       !password ||
@@ -42,7 +42,8 @@ async function register(req: NextApiRequest, res: NextApiResponse<Data>) {
     let { db } = await connectToDatabase()
 
     // Check user
-    const existingUser = await db.collection('users').find({ email })
+    const existingUser = await db.collection('users').findOne({ email })
+    console.log(existingUser)
     if (existingUser) {
       return res
         .status(422)
@@ -66,7 +67,9 @@ async function register(req: NextApiRequest, res: NextApiResponse<Data>) {
       user: insertedId,
     })
 
-    return res.status(201).json({ status: true, message: 'New user created' })
+    return res
+      .status(201)
+      .json({ status: true, message: 'Created successfully' })
   } catch (error: any | unknown) {
     // return the error
     return res.json({

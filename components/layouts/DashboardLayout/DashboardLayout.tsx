@@ -4,6 +4,8 @@ import React, { ReactElement, useState } from 'react'
 import { DashboardHeader, Sidebar } from '..'
 import { useModal } from '@/store/context/modal-context'
 import SIDEBAR_BLUEPRINT from './../../../data/sidebar-data'
+import AppAlert from './../../ui/alerts/AppAlert'
+import { useAlert } from '@/store/context/alert-context'
 // Providers
 
 type DashboardLayoutProps = {
@@ -13,10 +15,18 @@ type DashboardLayoutProps = {
 const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const { isOpen } = useModal()
+  const { show } = useAlert()
   console.log('DashboardLayout', isOpen)
   const menuBlueprint = SIDEBAR_BLUEPRINT
   return (
     <>
+      {show && (
+        <AppAlert
+          info={'Your password has been set.'}
+          bgColor={''}
+          icon={'las la-check-circle'}
+        />
+      )}
       <Sidebar isOpen={isSidebarOpen} blueprint={menuBlueprint} />
       <div className="dashboard__content">
         <DashboardHeader />

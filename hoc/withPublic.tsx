@@ -1,18 +1,19 @@
-import React from 'react';
-import { getCookie } from '../utils/auth';
-import axios from 'axios';
+import React from 'react'
+import { getCookie } from '../utils/auth'
+import axios from 'axios'
+import { NextPage } from 'next'
 
-const withPublic = (Page) => {
-  const WithAuthPublic = (props) => <Page {...props} />;
+const withPublic = (Page: NextPage) => {
+  const WithAuthPublic = (props: any | unknown) => <Page {...props} />
 
-  WithAuthPublic.getInitialProps = async (context) => {
+  WithAuthPublic.getInitialProps = async (context: any) => {
     // Retrieve token from cookie for either client-side or server-side
-    const token = getCookie('token', context.req); // getCookie() will check where the app is
+    const token = getCookie('token', context.req) // getCookie() will check where the app is
     // running(client or server), and check the cookie
-    console.log(token);
+    console.log(token)
 
-    let user = null;
-    let userLinks = null;
+    let user = null
+    let userLinks = null
 
     if (token) {
       try {
@@ -21,14 +22,14 @@ const withPublic = (Page) => {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
           },
-        });
+        })
 
-        user = response.data.data.user;
-        userLinks = response.data.data.links;
-      } catch (error) {
-        console.log(error);
+        user = response.data.data.user
+        userLinks = response.data.data.links
+      } catch (error: any | unknown) {
+        console.log(error)
         if (error.response.status === 401 || error.response.status === 400) {
-          user = null;
+          user = null
         }
       }
     }
@@ -39,14 +40,14 @@ const withPublic = (Page) => {
         user,
         userLinks,
         token,
-      };
+      }
     } else {
-      context.res.writeHead(302, { Location: '/' });
-      context.res.end();
+      context.res.writeHead(302, { Location: '/' })
+      context.res.end()
     }
-  };
+  }
 
-  return WithAuthPublic;
-};
+  return WithAuthPublic
+}
 
-export default withPublic;
+export default withPublic

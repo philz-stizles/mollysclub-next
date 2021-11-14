@@ -64,13 +64,30 @@ const DoctorsDashboard = () => {
 
   return (
     <div className="doctors-dashboard">
-      <h4>Doctor</h4>
+      <div className="doctors-dashboard__header">
+        <h4 className="title">Doctors</h4>
+      </div>
       <CardWrapper title={'List of Doctors'}>
         <AppTable />
       </CardWrapper>
       <style>{`
         .doctors-dashboard {
            padding: 2rem;
+        }
+
+        .doctors-dashboard__header {
+          display: flex;
+          align-items: center;
+          padding: 0 0 15px 2px;
+          position: relative;
+        }
+
+        .doctors-dashboard__header .title {
+          font-size: 24px;
+          font-weight: 600;
+          color: #06072d;
+          margin-bottom: 5px;
+          text-indent: -1px;
         }
       `}</style>
     </div>

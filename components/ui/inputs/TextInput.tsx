@@ -4,6 +4,7 @@ type TextInputProps = {
   type?: string
   label: string
   placeholder: string
+  name?: string
   value: string
   required?: boolean
   onChange?: (e: any) => void
@@ -13,6 +14,7 @@ const TextInput = ({
   type,
   label,
   placeholder,
+  name,
   value,
   onChange,
   required,
@@ -25,6 +27,7 @@ const TextInput = ({
         type={type}
         className="text-input__input"
         placeholder={placeholder}
+        name={name}
         value={value}
         spellCheck="false"
         data-ms-editor="true"
@@ -32,8 +35,7 @@ const TextInput = ({
         required={required ? required : false}
       />
       <div className="text-input__msg">
-        Your name may appear around here where you are mentioned. You can change
-        or remove it at any time.
+        You can change or remove it at any time.
       </div>
       <style jsx>{`
         .text-input {

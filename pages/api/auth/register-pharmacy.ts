@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { hashPasswordAsync } from 'lib/services/security/password'
 import type { NextApiRequest, NextApiResponse } from 'next'
-const { connectToDatabase } = require('../../../lib/mongodb')
+import { connectToDatabase } from '@/lib/db/mongodb'
 const { ObjectId } = require('mongodb')
 
 type Data = {
@@ -66,7 +66,9 @@ async function register(req: NextApiRequest, res: NextApiResponse<Data>) {
       user: insertedId,
     })
 
-    return res.status(201).json({ status: true, message: 'New user created' })
+    return res
+      .status(201)
+      .json({ status: true, message: 'Created successfully' })
   } catch (error: any | unknown) {
     // return the error
     return res.json({
