@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Loader = ({ color }) => {
+const Loader = ({ color }: { color: string }) => {
   return (
     <div className="Loader">
       <style jsx>{`

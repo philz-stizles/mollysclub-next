@@ -9,7 +9,7 @@ const data = [
 ]
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
 
-const CustomPieChart = ({ onPieEnter }) => {
+const CustomPieChart = ({ onPieEnter }: { onPieEnter: () => void }) => {
   return (
     <PieChart width={800} height={400} onMouseEnter={onPieEnter}>
       <Pie

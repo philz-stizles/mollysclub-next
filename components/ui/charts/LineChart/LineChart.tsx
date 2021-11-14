@@ -8,7 +8,17 @@ import {
 } from 'recharts'
 import classes from './LineChart.module.scss'
 
-const CustomLineChart = ({ title, data, dataKey, grid }) => {
+const CustomLineChart = ({
+  title,
+  data,
+  dataKey,
+  grid,
+}: {
+  title: string
+  data: any
+  dataKey: string
+  grid: any
+}) => {
   return (
     <div className={classes.CustomLineChart}>
       <h3 className={classes.ChartTitle}>{title}</h3>
