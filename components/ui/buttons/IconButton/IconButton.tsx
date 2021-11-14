@@ -1,6 +1,6 @@
 import React from 'react'
 
-const IconButton = ({ icon, label }) => {
+const IconButton = ({ icon, label }: { icon: string; label: string }) => {
   return (
     <button className="IconButton">
       <i className={[icon].join('')} />
