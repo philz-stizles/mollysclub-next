@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui'
+import { AppButton } from '@/components/ui'
 import React, { Fragment } from 'react'
 import HTMLRenderer from 'react-html-renderer'
 import styles from './SimpleArticle.module.scss'
@@ -39,7 +39,7 @@ const SimpleArticle = ({ title, subTitle, text, btnText, list }) => {
           })}
         </ul>
       )}
-      <Button onClick={() => true}>{btnText} &rarr;</Button>
+      <AppButton onClick={() => true}>{btnText} &rarr;</AppButton>
     </div>
   )
 }
