@@ -1,10 +1,7 @@
 import { connectToDatabase } from 'lib/db/mongodb'
+import { Data } from 'lib/types'
 import { ObjectId } from 'mongodb'
 import { NextApiRequest, NextApiResponse } from 'next'
-
-type Data = {
-  name: string
-}
 
 interface NextApiRequestWithParams extends NextApiRequest {
   params: {
@@ -19,40 +16,39 @@ export default async function handler(
   // switch the methods
   switch (req.method) {
     case 'GET': {
-      return getPharmacies(req, res)
+      return getPatients(req, res)
     }
 
     case 'POST': {
-      return addPharmacie(req, res)
+      return addPatient(req, res)
     }
 
-    case 'PUT': {
-      return updatePharmacie(req, res)
-    }
-
-    case 'DELETE': {
-      return deletePharmacie(req, res)
+    default: {
+      return res.status(500).json({
+        message: 'Method is not allowed',
+        status: false,
+      })
     }
   }
 }
 
-async function getPharmacies(
+async function getPatients(
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> {
   try {
     // connect to the database
     let { db } = await connectToDatabase()
-    // fetch the pharmacies
-    let pharmacies = await db
-      .collection('pharmacies')
+    // fetch the patients
+    let patients = await db
+      .collection('patients')
       .find({})
       .sort({ createdAt: -1 })
       .limit(10)
       .toArray()
     // return response
     return res.json({
-      message: JSON.parse(JSON.stringify(pharmacies)),
+      message: JSON.parse(JSON.stringify(patients)),
       success: true,
     })
   } catch (error: any | unknown) {
@@ -64,7 +60,7 @@ async function getPharmacies(
   }
 }
 
-async function addPharmacie(
+async function addPatient(
   req: NextApiRequest,
   res: NextApiResponse
 ): Promise<void> {
@@ -72,9 +68,9 @@ async function addPharmacie(
     // connect to the database
     let { db } = await connectToDatabase()
     // add the post
-    await db.collection('pharmacies').insertOne(JSON.parse(req.body))
+    await db.collection('patients').insertOne(JSON.parse(req.body))
     // return a message
-    return res.json({
+    return res.status(201).json({
       message: 'Created successfully',
       success: true,
     })
@@ -87,7 +83,7 @@ async function addPharmacie(
   }
 }
 
-async function updatePharmacie(
+async function updatePatient(
   req: NextApiRequestWithParams,
   res: NextApiResponse
 ): Promise<void> {
@@ -96,7 +92,7 @@ async function updatePharmacie(
     let { db } = await connectToDatabase()
 
     // update target doctor
-    await db.collection('pharmacies').updateOne(
+    await db.collection('patients').updateOne(
       {
         _id: new ObjectId(req.params.id),
       },
@@ -117,7 +113,7 @@ async function updatePharmacie(
   }
 }
 
-async function deletePharmacie(
+async function deletePatient(
   req: NextApiRequestWithParams,
   res: NextApiResponse
 ): Promise<void> {
@@ -126,8 +122,8 @@ async function deletePharmacie(
     let { db } = await connectToDatabase()
 
     // Deleting the post
-    await db.collection('pharmacies').deleteOne({
-      _id: new ObjectId(req.params.id),
+    await db.collection('patients').deleteOne({
+      _id: new ObjectId(req.body),
     })
 
     // returning a message
